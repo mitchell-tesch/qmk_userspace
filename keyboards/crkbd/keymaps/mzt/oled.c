@@ -250,7 +250,6 @@ static void oled_render_bmo_logo(void) {
 
 // Animation parameters
 #define FRAME_DURATION 6000 // How long each frame lasts in milliseconds
-// Animation variab
 uint32_t timer = 0;
 uint8_t current_frame = 0;
 // Render animation
@@ -379,12 +378,12 @@ static void oled_render_bmo_animation(void) {
         sizeof(epd_bitmap_bmo_dance6)
     };
 
-    // sleep animation if less than 5 WPM
-    if (get_current_wpm() < 5){
+    // sleep animation if less than 10 WPM
+    if (get_current_wpm() < 10){
         oled_write_raw_P(epd_bitmap_bmo_sleep, sizeof(epd_bitmap_bmo_sleep));
         }
-    // still animation if less than 10 WPM
-    else if (get_current_wpm() < 10){
+    // still animation if less than 20 WPM
+    else if (get_current_wpm() < 20){
         oled_write_raw_P(epd_bitmap_bmo_still, sizeof(epd_bitmap_bmo_still));
     }
     // Dance animation if less than 10 WPM
